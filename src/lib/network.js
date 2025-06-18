@@ -1,6 +1,5 @@
 import { writable } from 'svelte/store';
 import { browser } from '$app/environment';
-import { TCPSocketClient } from '../../dSockets';
 
 let authKey = undefined;
 let controlUrl = undefined;
@@ -152,10 +151,3 @@ export function updateButtonData(state, handleConnect) {
 
 export const networkInterface = { authKey: authKey, controlUrl: controlUrl, loginUrlCb: loginUrlCb, stateUpdateCb: stateUpdateCb, netmapUpdateCb: netmapUpdateCb };
 export const networkData = { currentIp: null, connectionState: connectionState, exitNode: exitNode, loginUrl: null, dashboardUrl: dashboardUrl }
-
-
-//
-// IWA test
-// 
-export const directSocketsInterface = { host: null, port: null, options: null};
-
