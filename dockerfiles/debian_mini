@@ -7,7 +7,7 @@ RUN apt-get -y install apt-utils gcc net-tools htop  \
 	patch wamerican ucf manpages \
 	file luajit make lua50 dialog curl \
 	less cowsay netcat-openbsd
-RUN useradd -m gigk30 && echo "gigk30:Test@123 | chpasswd
+RUN useradd -m gigk30 && echo "gigk30:Test@123" | chpasswd
 COPY --chown=gigk30:gigk30 ./examples /home/gigk30/examples
 RUN chmod -R +x  /home/gigk30/examples/lua
 # We set WORKDIR, as this gets extracted by Webvm to be used as the cwd. This is optional.
