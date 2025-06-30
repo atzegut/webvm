@@ -1,12 +1,14 @@
 FROM --platform=i386 i386/debian:buster
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get clean && apt-get update && apt-get -y upgrade
-RUN apt-get -y install apt-utils gcc net-tools htop  \
-	python3 vim unzip ruby nodejs \
-	fakeroot dbus base whiptail hexedit \
-	patch wamerican ucf manpages \
-	file luajit make lua50 dialog curl \
-	less cowsay netcat-openbsd
+	apt-get install -y apt-utils beef bsdgames bsdmainutils ca-certificates clang net-tools htop \
+	cowsay cpio cron curl dmidecode dmsetup g++ gcc gdbm-l10n git  \
+	hexedit  ifupdown init logrotate lsb-base lshw lua50 luajit lynx make \
+	nano netbase nodejs openssl procps python3 python3-cryptography \
+	python3-jinja2 python3-numpy python3-pandas python3-pip python3-scipy \
+	python3-six python3-yaml readline-common rsyslog ruby sensible-utils \
+	ssh systemd systemd-sysv tasksel tasksel-data udev vim wget whiptail \
+	xxd iptables isc-dhcp-client isc-dhcp-common kmod less netcat-openbsd
 RUN useradd -m gigk30 && echo "gigk30:Test@123" | chpasswd
 COPY --chown=gigk30:gigk30 ./examples /home/gigk30/examples
 RUN chmod -R +x  /home/gigk30/examples/lua
