@@ -1,3 +1,3 @@
 #!/bin/sh
-ssh-keygen -A
-exec /usr/sbin/sshd -D -e "$@"
+### ssh-keygen -A
+###exec /usr/sbin/sshd -D -e "$@"
