@@ -4,4 +4,4 @@
 
 ENV HOME="/home/user" TERM="xterm" USER="user" SHELL="/bin/bash" EDITOR="vim" LANG="en_US.UTF-8" LC_ALL="C"
 RUN echo 'root:T3st@123' | chpasswd
-sh /bin/bash
+
