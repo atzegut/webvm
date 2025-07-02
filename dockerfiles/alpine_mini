@@ -7,5 +7,6 @@ RUN echo -n 'user:password' | chpasswd
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-EXPOSE 22
+# EXPOSE 22
+CMD [ "/bin/bash" ]
 
