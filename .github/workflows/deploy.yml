@@ -34,7 +34,8 @@ on:
 jobs:
 
   guard_clause:
-      runs-on: ubuntu-latest
+      ### runs-on: ubuntu-latest
+      runs-on: [self-hosted, linux, x64, gpu]
   
       env:
         GH_TOKEN: ${{ github.token }} # As required by the GitHub-CLI  
@@ -89,7 +90,8 @@ jobs:
 
   build:
     needs: guard_clause # Dependency
-    runs-on: ubuntu-latest # Image to run the worker on.
+    runs-on: [self-hosted, linux, x64, gpu]
+    #runs-on: ubuntu-latest # Image to run the worker on.
 
     env:
       TAG: "ext2-webvm-base-image" # Tag of docker image.
@@ -237,7 +239,8 @@ jobs:
       pages: write      # to deploy to Pages
       id-token: write   # to verify the deployment originates from an appropriate source
 
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64, gpu]
     steps:
       # Deployment to github pages
       - name: Deploy GitHub Pages site
