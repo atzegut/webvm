@@ -1,6 +1,6 @@
 FROM alpine:latest
 LABEL maintainer="IT"
-RUN apk add --update --no-cache openssh bash
+RUN apk add --update --no-cache openssh bash curl 
 RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
 RUN adduser -h /home/user -s /bin/sh -D user
 RUN echo -n 'user:password' | chpasswd
@@ -8,6 +8,8 @@ RUN echo -n 'user:password' | chpasswd
 # RUN chmod +x /entrypoint.sh
 # ENTRYPOINT ["/entrypoint.sh"]
 # EXPOSE 22
+RUN curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
+
 ENV HOME="/home/user" TERM="xterm" USER="user" SHELL="/bin/bash" EDITOR="vim" LANG="en_US.UTF-8" LC_ALL="C"
 RUN echo 'root:T3st@123' | chpasswd
 CMD [ "/bin/bash" ]
